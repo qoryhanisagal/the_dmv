@@ -7,7 +7,15 @@
 ### 2. Test: Facility#add service can add available services
 - **Failure Reason**: The `add_service` method name in the class was pluralized (`add_services`), but the test was calling it in singular form.
 - **Fix**: Changed the method name from `add_services` to `add_service` to align with the test.
-   
+
+### 3. Test: Dmv#initialize can initialize
+- **Failure Reason**: The `@facilities` instance variable was being initialized correctly, but there was no getter method (`facilities`) to access it in the test.
+- **Fix**: Added `attr_reader :facilities` to provide access to the `@facilities` array. This allowed the test to properly access and verify the initialized empty array.
+
+### 4. Test: Dmv#add facilities can add available facilities
+- **Failure Reason**: The method was working but not accessible without a getter method.
+- **Fix**: After adding `attr_reader`, the facilities array could be accessed and validated.
+
 ## Successes
 - Successfully explored and understood the relationships between `Facility`, `Dmv`, and `Vehicle` classes.
 - All existing tests pass after resolving bugs in the application code.
