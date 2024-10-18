@@ -1,6 +1,7 @@
 class Vehicle
   # These attributes are readable from outside the class.
-  attr_reader :vin, :year, :make, :model, :engine, :registration_date
+  attr_reader :plate_type, :registration_date # Added attributes that can be modified
+  attr_reader :vin, :year, :make, :model, :engine
 
   # The initialize method takes a hash of vehicle details and assigns them to instance variables.
   # It also initializes @registration_date to nil, indicating the vehicle is not yet registered.
@@ -11,6 +12,7 @@ class Vehicle
     @model = vehicle_details[:model]       # Vehicle's model (e.g., Cruz)
     @engine = vehicle_details[:engine]     # Type of engine (e.g., :ice for internal combustion engine)
     @registration_date = nil               # Initially, the vehicle is unregistered, so set to nil
+    @plate_type = nil                      # Initially,no plate assigned, so set to nil
   end
 
   # This method determines if the vehicle is considered an antique, which is true if the car is older than 25 years.
