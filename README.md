@@ -1,3 +1,4 @@
 # The DMV
 
-This is the starter repo for the BE Mod1 DMV project.
+Repo for the SE Mod1 DMV project. 
+By Qoiree
