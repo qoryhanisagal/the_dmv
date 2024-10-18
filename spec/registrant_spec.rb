@@ -6,7 +6,7 @@ RSpec.describe Registrant do
   it 'creates a registrant with a name, age, and permit' do
     registrant_1 = Registrant.new('Bruce', 18, true)  # Registrant with a permit
     registrant_2 = Registrant.new('Penny', 15)        # Registrant without a permit
-
+    binding.pry
     # Test the attributes of the first registrant
     expect(registrant_1.name).to eq('Bruce')
     expect(registrant_1.age).to eq(18)
