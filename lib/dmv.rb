@@ -1,23 +1,23 @@
 class Dmv
-  # This creates a getter method for the facilities attribute, 
-  # allowing the list of facilities to be accessed from outside the class 
-  # but not modified directly. This ensures data encapsulation.
-  attr_reader :facilities
+  attr_reader :facilities  # Getter method for facilities
 
-  # The initialize method is the constructor for the Dmv class.
-  # It is called when a new instance of Dmv is created.
-  # It initializes an empty array for @facilities, which will later 
-  # store the list of facilities managed by the Dmv.
   def initialize
-    @facilities = []  # Initializes an empty array to hold facilities.
+    @facilities = []  # Initialize an empty array for storing facilities
   end
 
-  # This method allows a facility to be added to the list of facilities.
-  # The facility is passed as an argument and appended to the @facilities array.
-  # This method ensures that the Dmv object can dynamically manage multiple facilities.
-  #
-  # @param facility [Object] the facility object that will be added to the @facilities array.
+  # This method adds a facility to the @facilities array
   def add_facility(facility)
-    @facilities << facility  # Adds the provided facility to the @facilities array.
+    @facilities << facility  # Add the given facility to the @facilities array
+  end
+
+  # This method returns a list of facilities that offer the specified service.
+  # It iterates over the @facilities array and selects facilities that include the requested service.
+  #
+  # @param service [String] the name of the service to search for in the facilities.
+  # @return [Array] an array of facilities that offer the specified service.
+  def facilities_offering_service(service)
+    @facilities.select do |facility|
+      facility.services.include?(service)  # Check if the facility offers the specified service
+    end
   end
 end
