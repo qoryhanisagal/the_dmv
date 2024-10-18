@@ -16,3 +16,7 @@ In this iteration, the focus was on completing the missing functionality from th
 ## Reflection
 - **Challenges**: [What was challenging about building the new functionality].
 - **Successes**: [What worked well].
+
+
+# DMVdata will come as potentially 1,000 arrays.
+#### The challenge here is to organize the data. Assign arrays to class objects
