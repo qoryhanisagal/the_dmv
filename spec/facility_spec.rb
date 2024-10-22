@@ -128,6 +128,47 @@ RSpec.describe Facility do
     end
   end
 
+# Testing license renewal functionality
+describe '#renew_drivers_license' do
+  it 'renews a driver’s license if the registrant has a license' do
+    # Add the renew license service to the facility
+    @facility.add_service('Renew License')
+
+    # Initialize registrants
+    registrant_1 = Registrant.new('John', 17, true)  # Registrant with a permit
+    registrant_2 = Registrant.new('Jane', 15, true)  # Registrant without a license
+
+    # Simulate the process of passing the written and road tests for registrant_1
+    @facility.add_service('Written Test')
+    @facility.add_service('Road Test')
+    @facility.administer_written_test(registrant_1)
+    @facility.administer_road_test(registrant_1)
+
+    # Test that registrant_1 can renew their license
+    expect(@facility.renew_drivers_license(registrant_1)).to eq(true)
+    expect(registrant_1.license_data[:renewed]).to eq(true)
+
+    # Test that registrant_2 cannot renew their license since they do not have one
+    expect(@facility.renew_drivers_license(registrant_2)).to eq(false)
+    expect(registrant_2.license_data[:renewed]).to eq(false)
+  end
+
+  it 'does not renew license if service is not offered' do
+    registrant_1 = Registrant.new('John', 17, true)  # Registrant with a permit
+
+    # Simulate passing both tests
+    @facility.add_service('Written Test')
+    @facility.add_service('Road Test')
+    @facility.administer_written_test(registrant_1)
+    @facility.administer_road_test(registrant_1)
+
+    # Try to renew license without adding the renew service
+    expect(@facility.renew_drivers_license(registrant_1)).to eq(false)
+    expect(registrant_1.license_data[:renewed]).to eq(false)
+  end
+end
+
+
   # Edge Case 1: Test registering a vehicle when the service is not offered
   it 'does not register a vehicle if the service is not offered' do
     expect(@facility.registered_vehicles).to eq([])  # No vehicles registered yet
@@ -159,3 +200,8 @@ RSpec.describe Facility do
     
     # Register the third vehicle (Camaro)
     @facility.register_vehicle(@camaro)  # Antique vehicle, should add 25 to fees
+
+    expect(@facility.registered_vehicles).to include(@cruz, @bolt, @camaro)
+    expect(@facility.collected_fees).to eq(325)  # 100 (cruz) + 200 (bolt) + 25 (camaro)= 325
+  end
+end
