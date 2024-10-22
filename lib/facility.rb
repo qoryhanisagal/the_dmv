@@ -44,4 +44,30 @@ class Facility
 
     @registered_vehicles << vehicle  # Add the vehicle to the list of registered vehicles
   end
+
+    # Method to administer written test
+  def administer_written_test(registrant)
+    # The written test is only administered if the service is available,
+    # the registrant is 16 or older, and they have a permit.
+    return false unless @services.include?('Written Test') && registrant.age >= 16 && registrant.permit?
+    
+    registrant.license_data[:written] = true # Mark the written test as passed
+    true  # Return true to indicate success
+  end
+
+  # Method to administer road test
+  def administer_road_test(registrant)
+    return false unless @services.include?('Road Test') && registrant.license_data[:written]
+    
+    registrant.license_data[:license] = true
+    true
+  end
+
+  # Method to renew a driver's license
+  def renew_drivers_license(registrant)
+    return false unless @services.include?('Renew License') && registrant.license_data[:license]
+    
+    registrant.license_data[:renewed] = true
+    true
+  end
 end
