@@ -1,6 +1,6 @@
 class Vehicle
   # These attributes are readable from outside the class.
-  attr_reader :plate_type, :registration_date # Added attributes that can be modified
+  attr_accessor :plate_type, :registration_date # Added attributes that can be modified
   attr_reader :vin, :year, :make, :model, :engine
 
   # The initialize method takes a hash of vehicle details and assigns them to instance variables.

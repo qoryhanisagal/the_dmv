@@ -18,7 +18,7 @@ This iteration focused on improving the object-oriented design by adding the `Re
 
 ## Reflection
 - **Steps to Add Classes**: [What was the process for adding new classes].
-- **Challenges**: [What was difficult].
-- **What was Easier**: [What was easier].
+- **Challenges**: One challenge was dealing with unfamiliar parts of the code, particularly when implementing new features like the vehicle registration functionality. Understanding the flow between services offered by a facility and the vehicle class attributes took time to figure out. Another difficulty was maintaining the logic when adding new services to the facility while ensuring they adhered to the existing service framework.
+- **What was Easier**: It was easier than expected to work with the tests once I understood how the existing structure was built. The well-structured nature of the tests helped me see where new functionality needed to be added. Using binding.pry also made it easier to debug by allowing real-time inspection of object states, which gave quick feedback when something wasn’t working as expected.
 
 

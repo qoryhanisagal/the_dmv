@@ -52,6 +52,6 @@ In this iteration, I implemented the `Registrant` class to represent a user of t
    - **Fix**: Ensured the `license_data` hash is always initialized with default values (`false` for `:written`, `:license`, and `:renewed`).
 
 ## Reflection
-- **Steps to Explore Codebase**: [What you did to understand the code].
-- **Challenges**: [What was difficult about working with unfamiliar code].
-- **What was Easier**: [What was easier than expected].
+- **Steps to Explore Codebase**: To explore the codebase, I first reviewed the structure of the provided classes and methods, focusing on how the Facility and Vehicle classes interacted. I read through the initial tests to understand the expected behavior. Using binding.pry, I paused execution at key points to inspect objects and variables, which helped me visualize how data flowed through the code. Finally, I worked through any failing tests one by one, debugging and adjusting the application logic to make them pass.
+- **Challenges**: One challenge was getting familiar with the code that I didn’t write myself, especially when it came to understanding how different methods and objects were interacting. Some logic wasn’t immediately clear, so I had to spend extra time debugging. It was also challenging to extend the functionality without breaking the existing structure.
+- **What was Easier**: It was easier than expected to work with the tests once I understood how the existing structure was built. The well-structured nature of the tests helped me see where new functionality needed to be added. Using binding.pry also made it easier to debug by allowing real-time inspection of object states, which gave quick feedback when something wasn’t working as expected.
