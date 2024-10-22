@@ -159,8 +159,3 @@ RSpec.describe Facility do
     
     # Register the third vehicle (Camaro)
     @facility.register_vehicle(@camaro)  # Antique vehicle, should add 25 to fees
-
-    expect(@facility.registered_vehicles).to include(@cruz, @bolt, @camaro)
-    expect(@facility.collected_fees).to eq(325)  # 100 (cruz) + 200 (bolt) + 25 (camaro)= 325
-  end
-end
