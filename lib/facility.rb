@@ -62,12 +62,4 @@ class Facility
     registrant.license_data[:license] = true
     true
   end
-
-  # Method to renew a driver's license
-  def renew_drivers_license(registrant)
-    return false unless @services.include?('Renew License') && registrant.license_data[:license]
-    
-    registrant.license_data[:renewed] = true
-    true
-  end
 end
