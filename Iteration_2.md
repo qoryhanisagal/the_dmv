@@ -1,7 +1,7 @@
 # Iteration 2 - Adding Features and Creating Objects from Data Sources
 
 ## Overview
-In this iteration, we extended the **Facility** class to administer a variety of DMV services such as **vehicle registration**, **written tests**, **road tests**, and **driver’s license renewals**. The registration logic applies different fees based on vehicle types, and each service requires the facility to offer the relevant service before it can be performed. We also focused on integrating external data for creating vehicle objects using a service class.
+In this iteration, I extended the **Facility** class to administer a variety of DMV services such as **vehicle registration**, **written tests**, **road tests**, and **driver’s license renewals**. The registration logic applies different fees based on vehicle types, and each service requires the facility to offer the relevant service before it can be performed. I also focused on integrating external data for creating vehicle objects using a service class.
 
 ## New Classes and Methods
 ### Methods Added:
@@ -27,10 +27,10 @@ In this iteration, we extended the **Facility** class to administer a variety of
    - **Fix**: Updated the `administer_road_test` method to check the status of the written test in the registrant's `license_data` hash.
 
 ## TDD Process
-1. **Start with Writing Tests**: We first wrote unit tests for each new service: vehicle registration, written test, road test, and license renewal.
-2. **Implementation**: After each test was written, we implemented the corresponding method in the `Facility` class.
-3. **Refinement and Debugging**: As we ran the tests, we fixed any issues or failures, ensuring that all methods adhered to the expected behavior.
-4. **Final Testing**: After completing the functionality, we ensured all edge cases were covered and tests passed successfully.
+1. **Start with Writing Tests**: I first wrote unit tests for each new service: vehicle registration, written test, road test, and license renewal.
+2. **Implementation**: After each test was written, I implemented the corresponding method in the `Facility` class.
+3. **Refinement and Debugging**: As we ran the tests, I fixed any issues or failures, ensuring that all methods adhered to the expected behavior.
+4. **Final Testing**: After completing the functionality, I ensured all edge cases were covered and tests passed successfully.
 
 ## Reflection
 - **Steps to Add Classes**: The process involved carefully understanding the requirements for each service, adding them one by one, and ensuring that they adhered to the rules (e.g., age and permit requirements for tests). Each method was added incrementally after writing the corresponding test.
