@@ -61,8 +61,6 @@ RSpec.describe Facility do
   it 'does not register a vehicle if the service is not offered' do
     expect(@facility.registered_vehicles).to eq([])  # No vehicles registered yet
 
-    binding.pry  # Pause here to inspect before registration attempt
-
     @facility.register_vehicle(@cruz)                # Trying to register Cruz without offering the service
     expect(@facility.registered_vehicles).to eq([])  # No vehicles should be registered
     expect(@facility.collected_fees).to eq(0)        # No fees should be collected
@@ -73,8 +71,6 @@ RSpec.describe Facility do
     unknown_vehicle = Vehicle.new({vin: 'unknownvin', year: 2010, make: 'Unknown', model: 'Unknown'})
     @facility.add_service('Vehicle Registration')
 
-    binding.pry  # Pause here to inspect the unknown vehicle
-
     @facility.register_vehicle(unknown_vehicle)
     expect(unknown_vehicle.plate_type).to eq(:regular)  # Default to regular plate type
     expect(@facility.collected_fees).to eq(100)         # Charge regular fee
@@ -84,8 +80,6 @@ RSpec.describe Facility do
   it 'registers multiple vehicles and tracks total fees accurately' do
     @facility.add_service('Vehicle Registration')
     @facility.register_vehicle(@cruz) # Regular vehicle, should add 100 to fees
-
-    binding.pry  # Pause here to check total fees after the first registration
     
     @facility.register_vehicle(@bolt) # EV vehicle, should add 200 to fees
     @facility.register_vehicle(@camaro) # Antique vehicle, should add 25 to fees
