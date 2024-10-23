@@ -237,4 +237,3 @@ rspec
 ````
 #### Step 5: Commit Changes
 - Commit changes add high-level message.
-## Reflection
